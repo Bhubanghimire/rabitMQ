@@ -6,6 +6,7 @@ connection = pika.BlockingConnection(
 channel = connection.channel()
 
 channel.exchange_declare(exchange='logs', exchange_type='fanout')
+
 result = channel.queue_declare(queue="", exclusive=True)
 queue_name = result.method.queue
 
